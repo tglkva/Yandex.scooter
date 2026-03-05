@@ -23,10 +23,9 @@ class TestQuestionsAboutImportant:
 
         questions_page.open_main_page()
         questions_page.click_confirm_cookie_button()
-        questions_page.click_faq_question(question_locator)
-        answer_element=questions_page.find(answer_locator)
+        questions_page.click_faq_question(question_locator, question_name)
 
-        assert answer_element.is_displayed()
+        assert questions_page.is_element_displayed(answer_locator)
 
     
     @allure.title('Проверка перехода на страницу самоката при нажатии на логотип "Самокат"')
@@ -40,9 +39,8 @@ class TestQuestionsAboutImportant:
         main_page.click_confirm_cookie_button()
         main_page.click(MainPageLocators.ORDER_BUTTON_ABOVE)
         main_page.click_scooter_logo()
-        current_url = driver.current_url
         expected_url = MAIN_PAGE_URL
-        assert current_url == expected_url
+        assert main_page.get_current_url() == expected_url
 
     
     @allure.title('Проверка перехода на страницу Дзена при нажатии на логотип "Яндекса"')
@@ -55,6 +53,5 @@ class TestQuestionsAboutImportant:
         main_page.open_main_page()
         main_page.click_confirm_cookie_button()
         main_page.click_yandex_logo()
-        current_url = driver.current_url
         expected_url = YANDEX_ZEN_URL
-        assert current_url == expected_url
+        assert main_page.get_current_url() == expected_url
