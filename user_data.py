@@ -1,0 +1,6 @@
+NAME = "Анастасия"
+SURNAME = "Иванова"
+ADDRESS = "улица Гастелло"
+METRO_STATION = "Сокольники"
+PHONE_NUMBER = "89604652846"
+DATE = "14.03.2026"
